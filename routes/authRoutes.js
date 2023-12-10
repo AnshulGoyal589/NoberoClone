@@ -33,7 +33,8 @@ router.get("/register",(req,res)=>{
 router.post("/register", async (req,res)=>{
 
     const {userName,emailId,password,phoneNumber,identity}=req.body;
-    const user= new User({username:userName,email:emailId,totalCost:0,totalItems:0,phoneNumber:phoneNumber,identity:identity});
+    // identity='buyer';
+    const user= new User({username:userName,email:emailId,totalCost:0,totalItems:0,phoneNumber:phoneNumber,identity:'buyer'});
     const userCheck=await User.find({username:userName});
     if(userCheck.length){
       req.flash("error","This User already exists, plz try different ID!!")

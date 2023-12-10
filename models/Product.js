@@ -18,7 +18,8 @@ const productSchema = new mongoose.Schema({
     frequencyOfPurchase: { type: Number, default: 0 },
     top: { type: Number, default: 0 },
     gender:String,
-    category:String
+    category:String,
+    type:String
 
 
 })

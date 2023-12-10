@@ -8,7 +8,7 @@ const colors = require("colors");
 const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override"); 
 const PORT=3000;
-const session = require('express-session');  
+const session = require('express-session');     
 const cookieParser = require('cookie-parser');  
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -23,33 +23,27 @@ const responses = JSON.parse(rawData);
 const bodyParser=require('body-parser');
 
 const dotenv = require('dotenv');
-// const OpenAI = require('openai');
 
-dotenv.config() // Load the environment
-
-// const openai = new OpenAI({ key:"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" });
-
-
-
-
-
-app.use(bodyParser.json());
-
+dotenv.config() 
+ 
+ 
+app.use(bodyParser.json()); 
+  
 
 const accountSid = 'AC050107307a6c1b98f768259a9233f3e1';
-const authToken = '4f42d34278df05b13ccdd3588cd90ed8';
-
-
-mongoose.connect("mongodb://127.0.0.1:27017/ecommerceWebsite2")
+const authToken = '4f42d34278df05b13ccdd3588cd90ed8'; 
+ 
+ 
+mongoose.connect("mongodb://127.0.0.1:27017/ecommerceWebsite3")
 .then(()=> console.log("db connected sucessfully".yellow))
 .catch((err)=> console.log(err));
 
 
 
-
+ 
 const sessionConfig = {
 
-    secret: 'weneedagoodsecret', 
+    secret: 'weneedagoodsecret',  
     resave: false,
     saveUninitialized: true,
     cookie : {
@@ -62,7 +56,7 @@ const sessionConfig = {
 const productRoutes = require("./routes/productRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 const authRoutes = require("./routes/authRoutes");
-const cartRoutes = require("./routes/cartRoutes");
+const cartRoutes = require("./routes/cartRoutes"); 
 const { type } = require('os');
   
 
@@ -81,7 +75,7 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash('error');
     res.locals.currentUser=req.user;
     next(); 
-})
+}) 
 app.use("/products", productRoutes);
 app.use( reviewRoutes);
 app.use( authRoutes);
@@ -91,9 +85,9 @@ app.use( cartRoutes);
 
 passport.use(new LocalStrategy(User.authenticate()));
 
-passport.use(new GoogleStrategy({
+passport.use(new GoogleStrategy({ 
   clientID:'456174320355-puub5iuanlrgmcjp5c3fgsu1t7b48pp3.apps.googleusercontent.com',
-  clientSecret: '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',
+  clientSecret: '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', 
   callbackURL: '/oauth2/redirect/google',
   scope: ['profile']
   },

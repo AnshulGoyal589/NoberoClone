@@ -2,69 +2,149 @@
   <style>
     #li{
       display: inline-block;
-      color:white;
+      color:black;
       margin:auto 10px;
     }
     #a{
-      color:white;
+      color:black;
       text-decoration: none;
       display: inline-block;
     }
     #abc{
           display: flex;
           padding-top: 11px;
-        } 
+        }
     .main:hover{
       text-decoration-skip-ink: auto;
       margin-bottom: 14px !important;
-      border-bottom: 2px solid lightblue !important; 
+      border-bottom: 2px solid blue !important; /* Adjust the width and color of the underline */
         padding-bottom: 4px !important;
-      color: lightblue !important;
+      color: blue !important;
+    }
+    #hov2 img{
+      height: 130px;
+      width: 130px;
+      border-radius: 50%;
+    
+    }
+    #hov2 a{
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      text-align: center;
+    }
+    #hov img{
+      height: 130px;
+      width: 130px;
+      border-radius: 50%;
+    
+    }
+    #hov a{
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      text-align: center;
+    }
+    #hov div{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    #hov2 div{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    #hov{
+        width: 100%;
+        gap: 100px;
+        display: flex;
+        position: absolute;
+        display: none;
+        background-color: white;
+        z-index: 1000;
+        padding-left:200px ;
+    }
+    #hov2{
+        width: 100%;
+        gap: 100px;
+        display: flex;
+        position: absolute;
+        display: none;
+        background-color: white;
+        z-index: 1000;
+        padding-left:200px ;
+    }
+    #lofreg{
+      position: absolute;
+      width: 200px;
+      background-color: white;
+      right: 20px;
+      top: 80px;
+      display: none;
+    }
+    #lofreg a{
+      font-size: 22px;
+      text-decoration: none;
+      display: block;
+      color: black;
+      border-bottom: 1px solid black;
+      margin-left: 15px;
+      margin-right: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
     }
 
-    @media (max-width: 768px) {
-        .navbar-nav {
-            flex-direction: column;
-            text-align: center;
-            display: none;
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background-color: #000814;
-        }
-
-
-        .navbar-nav.show {
-            display: flex;
-        }
-
-        .navbar-nav li {
-            margin: 0;
-            width: 100%;
-        }
-    }
         
   </style>
 </head>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="border:2px solid white;background-color:#000814 !important;height:80px;z-index: 1001 !important;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="border:2px solid white;background-color:white !important;color: black;height:80px;z-index: 1001 !important;">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarText" >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap:10px;">
           <li class="nav-item" style="height:80px !important;">
-            <img style="width:65px;height:65px;position: relative;position: relative;bottom:5px;" src="https://i.pinimg.com/236x/26/52/1c/26521c92c945a36497af5917359c5588--monogram-logo-nespresso.jpg" alt="">
-            <a class="navbar" style="color: white;font-size: 36px;position: relative;display: inline-block;text-decoration: none;">NexusMart</a>
+            <img style="width:65px;height:65px;position: relative;position: relative;top:5px;margin-left: 70px;margin-right: 50px;" src="https://nobero.com/cdn/shop/files/Nobero_logo_1_2.svg?v=1694697396" alt="logo">
           </li>
-          <li class="nav-item" style="margin-left: 10px;">
-            
-              <a class=" main " href="/" style="text-decoration: none;color:white;position:relative;">Home</a>   
+          <li class="nav-item" style="margin: 15px;">   
+              <a class=" main " href="/products/newArrivals" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">New Arrivals</a>   
           </li>
-          <li class="nav-item" >
+          <li class="nav-item" style="margin: 15px;" >
             
-              <a class=" main " href="/products" style="text-decoration: none;color:white;position:relative;">Products</a>   
-          </li>  
-          <li class="nav-item">
-                <a class=" main " href="/products/add" style="text-decoration: none;color:white;position:relative;">Add Product</a>
+              <div   style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative" 
+                onmouseenter="
+                const hov=document.getElementById('hov');
+                hov.style.display='flex';
+                "  
+                onmouseleave="
+                const hov=document.getElementById('hov');
+                        setTimeout(function () {      
+                             hov.style.display='none';
+                        }, 2000); 
+                "
+                >Men</div>   
+          </li>
+          <li class="nav-item" style="margin: 15px;">
+                <div  style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;" 
+                onmouseenter="
+                const hov=document.getElementById('hov2');
+                hov.style.display='flex';
+                "  
+                onmouseleave="
+                const hov=document.getElementById('hov2');
+                        setTimeout(function () {      
+                             hov.style.display='none';
+                        }, 2000); 
+                "
+                >Women</div>
+          </li>
+          <li class="nav-item" style="margin: 15px;">
+                <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">Hoodies & Jackets</a>
+          </li>
+          <li class="nav-item" style="margin: 15px;">
+                <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">SweatShirts</a>
+          </li>
+          <li class="nav-item" style="margin: 15px;">
+                <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">Travel Hoodie</a>
           </li>
           <% if(currentUser){ %>
             <i class="fa-solid fa-cart-shopping fa-2xl" style="color:white;position: relative;top:10px " onclick="window.location.href='/products/<%= currentUser._id  %>/cart'">
@@ -74,24 +154,102 @@
             </sup>
             </i>
           <% } %>
-        </ul>    
-         
+        </ul>
+         <form class="d-flex " role="search"  style="position: relative;right:20px" action="/products/specific" method="POST" >
+          <input class="form-control me-2 col-8" type="search" placeholder="Search..." aria-label="Search" id="searchBar" name="input">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
 <% if(!currentUser){ %>
-          <ul id="abc">
-            <li id="li" class=" main " ><a href="/login" id="a">Login</a></li>
-            <li id="li" class=" main " ><a href="/register" id="a">SignUp</a></li>
-          </ul>
+          <img src="https://nobero.com/cdn/shop/t/199/assets/icon-kwikpass-login.svg?v=153304588784742675891701235538" alt="" 
+          onmouseenter="
+                const lofreg=document.getElementById('lofreg');
+                lofreg.style.display='block';
+                "  
+                onmouseleave="
+                const lofreg=document.getElementById('lofreg');
+                        setTimeout(function () {      
+                          lofreg.style.display='none';
+                        }, 2000); 
+                "
+          ">
         <% }else{ %>
             <ul style="display: flex;align-items: center;justify-content: center;padding-top: 7px;">
-              <li id="li" ><i class="fa-solid fa-user fa-xl"></i><a href="/userProfile" style="text-decoration: none;color:white; text-align: center;">
+              <li id="li" ><i class="fa-solid fa-user fa-xl"></i><a href="userProfile" style="text-decoration: none;color:white; text-align: center;">
                 <%= currentUser.username  %> 
               </a></li>
               <li id="li"><a href="/logout" id="a">Logout</a></li>
             </ul>
         <% } %>
-        
-
       </div>
     </div>
-  
 </nav>
+<div id="hov"  >
+
+  <div>
+    <img src="https://plus.unsplash.com/premium_photo-1675130119382-6f891206f406?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
+    <a href="/products/specific?cat=hoodies">Hoodies</a>
+  </div>
+  
+        <div>
+            <img src="https://images.unsplash.com/photo-1545291730-faff8ca1d4b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
+            <a href="/products/specific?cat=sweatShirts">Sweat Sirts</a>
+        </div>
+        <div>
+            <img src="https://plus.unsplash.com/premium_photo-1675186049409-f9f8f60ebb5e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
+            <!-- <a href=`/products/specific?{tShirts}`>T-Shirts</a> -->
+            <a href="/products/specific?cat=tShirts">T-Shirts</a>
+        </div>
+        <div>
+            <img src="https://plus.unsplash.com/premium_photo-1682096113699-cce9093dcc73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
+            <!-- <a href=`/products/specific?{coordShirts}`>Co-ord Sets</a> -->
+            <a href="/products/specific?cat=coordShirts">Co-ord Shirts</a>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1495121605193-b116b5b9c5fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
+            <!-- <a href=`/products/specific?{}`>Joggers</a> -->
+            <a href="/products/specific?cat=joggers">Joggers</a>
+        </div>
+     
+</div>
+<div id="hov2"  >
+
+  <div>
+    <img src="https://nobero.com/cdn/shop/collections/1.jpg?v=1679984145" alt="">
+    <a href="/products/specific?cat=hoodies">Hoodies</a>
+  </div>
+  
+        <div>
+            <img src="https://nobero.com/cdn/shop/collections/Untitled_design_3_3cdc79b2-d950-40e5-9a35-47a983b79c3f.jpg?v=1679997310" alt="">
+            <a href="/products/specific?cat=sweatShirts">Sweat Sirts</a>
+        </div>
+        <div>
+            <img src="https://nobero.com/cdn/shop/collections/3_7.jpg?v=1681740357" alt="">
+            <!-- <a href=`/products/specific?{tShirts}`>T-Shirts</a> -->
+            <a href="/products/specific?cat=tShirts">T-Shirts</a>
+        </div>
+        <div>
+            <img src="https://nobero.com/cdn/shop/collections/5.jpg?v=1679983950" alt="">
+            <!-- <a href=`/products/specific?{coordShirts}`>Co-ord Sets</a> -->
+            <a href="/products/specific?cat=coordShirts">Co-ord Shirts</a>
+        </div>
+        <div>
+            <img src="https://nobero.com/cdn/shop/collections/2-5.jpg?v=1679997455" alt="">
+            <!-- <a href=`/products/specific?{}`>Joggers</a> -->
+            <a href="/products/specific?cat=joggers">Joggers</a>
+        </div>
+     
+</div>
+<div id="lofreg"  >
+    <a href="/login">Login</a>
+    <a href="/register">Signup</a>
+</div>
+<script>
+  document.getElementById('sizeDropdown').addEventListener('change', function() {
+  const selectedSize = this.value; 
+  console.log('Selected size:', selectedSize);
+  window.location.href=`/products/sort/${selectedSize}`;
+
+
+});
+
+</script>

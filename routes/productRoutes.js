@@ -6,7 +6,7 @@ const {isLoggedIn}=require("../middleware");
 
 const Review = require("../models/Review");
 const app = express();
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));  
 
 
 function checkForNullCharacters(obj) {
@@ -21,64 +21,60 @@ function checkForNullCharacters(obj) {
 
 router.get("/", async (req,res)=>{   
     
-    const products=await Product.find({});    
-    let productss = await Product.find({
-        frequencyOfPurchase: { $gte: i }
-      });
+    const products=await Product.find({});
+  //   let productss = await Product.find({
+  //       frequencyOfPurchase: { $gte: i }
+  //     });
 
-      let productsss = await Product.find({
-        frequencyOfPurchase: { $gte: i+1 }
-      });
+  //     let productsss = await Product.find({
+  //       frequencyOfPurchase: { $gte: i+1 }
+  //     });
 
-   if(productsss.length>=5){
-    i++;
-    productss = await Product.find({
-        frequencyOfPurchase: { $gte: i }
-      });
-   }
-    res.render("products/homeTemp",{products,productss});
+  //  if(productsss.length>=5){
+  //   i++;
+  //   productss = await Product.find({
+  //       frequencyOfPurchase: { $gte: i }
+  //     });
+  //  }
+    res.render("products/homeTemp",{products});
 })
-router.post("/specific", async (req,res)=>{   
+// router.post("/specific", async (req,res)=>{   
     
-    const {input}=req.body;
-    const products=await Product.find({ name: { $regex: input, $options: 'i' } });
+//     const {input}=req.body;
+//     const products=await Product.find({ name: { $regex: input, $options: 'i' } });
+//     res.render("products/homeTemp",{products});
+// })
+router.get("/specific", async (req, res) => {
+  try {
+    const { cat } = req.query;
+    const products = await Product.find({ type: cat });
+    res.render("products/homeTemp", { products });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
-    let productss = await Product.find({
-        frequencyOfPurchase: { $gte: i }
-      });
-
-      let productsss = await Product.find({
-        frequencyOfPurchase: { $gte: i+1 }
-      });
-
-   if(productsss.length>=5){
-    i++;
-    productss = await Product.find({
-        frequencyOfPurchase: { $gte: i }
-      });
-   }
-    res.render("products/homeTemp",{products,productss});
-})
 router.post("/searchPrice", async (req,res)=>{   
      
     const {input}=req.body;
     const products = await Product.find({ price: { $lte: input } });
-    let productss = await Product.find({
-        frequencyOfPurchase: { $gte: i }
-      });
+  //   let productss = await Product.find({
+  //       frequencyOfPurchase: { $gte: i }
+  //     });
 
-      let productsss = await Product.find({
-        frequencyOfPurchase: { $gte: i+1 }
-      });
+  //     let productsss = await Product.find({
+  //       frequencyOfPurchase: { $gte: i+1 }
+  //     });
 
-   if(productsss.length>=5){
-    i++;
-    productss = await Product.find({
-        frequencyOfPurchase: { $gte: i }
-      });
-   }
+  //  if(productsss.length>=5){
+  //   i++;
+  //   productss = await Product.find({
+  //       frequencyOfPurchase: { $gte: i }
+  //     });
+  //  }
 
-    res.render("products/homeTemp",{products,productss});
+    res.render("products/homeTemp",{products});
 })
 router.get("/specificCategory/men", async (req,res)=>{   
     
@@ -120,6 +116,11 @@ router.get("/specificCategory/women", async (req,res)=>{
       });
    }
     res.render("products/homeTemp",{products,productss});
+})
+router.get("/hoodies", async (req,res)=>{   
+    
+    const products = await Product.find({ type:'hoodies'});
+    res.render("products/homeTemp",{products});
 })
 router.get("/sort/:basis", async (req,res)=>{   
     const {basis}=req.params;
