@@ -127,11 +127,12 @@ router.delete("/:productId",isLoggedIn ,async (req,res)=>{
     req.flash('success','Item deleted from the cart successfully!');
     res.redirect("/products");
 })
-router.get("/:productId", async(req,res)=>{ 
-    const {productId} = req.params; 
-    const product = await Product.findById(productId).populate("review");
-    res.render("products/show", {product})
-})
+router.get("/ss", async (req, res) => { 
+  const { productId } = req.query; 
+  const product = await Product.findById(productId).populate("review");
+  res.render("products/show", { product });
+});
+
 router.get("/:productId/edit",isLoggedIn, async (req,res)=>{ 
     const {productId}=req.params;
     const product = await Product.findById( productId );
