@@ -69,7 +69,7 @@
   label {
     font-weight: bold;
   }
-  input[type="range"] {
+  /* input[type="range"] {
     width: 100%;
     margin: 10px 0;
     -webkit-appearance: none;
@@ -79,16 +79,16 @@
     opacity: 0.7;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
-  }
+  } */
 
-  input[type="range"]::-webkit-slider-thumb {
+  /* input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
     background: #007bff;
     cursor: pointer;
-  }
+  } */
   output {
     display: block;
     font-weight: bold;
@@ -145,6 +145,59 @@
     color: green;
   }
   @media (max-width: 768px) {
+    .hero-container {
+        width: 100%;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-content h3 {
+        font-size: 18px;
+    }
+
+    #sidebar {
+        width: 100%;
+        padding-left: 0;
+        border: 2px solid black;
+        z-index: 1000;
+        color: black;
+    }
+    #sidebar form{
+      width: 100%;
+    }
+    #sidebar div{
+      width: 100%;
+    }
+    #show {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #btnn {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    form {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #sizeDropdown {
+        width: 100%;
+    }
+
+    #filter-icon {
+        font-size: 18px;
+        margin-left: 5px;
+    }
         #hero {
             width: 100%;
         }
@@ -158,7 +211,6 @@
         .sidebar-main {
             display: none;
         }
-        #delete,
         #show {
             margin-left: 0;
             width: 100%;
@@ -174,6 +226,10 @@
             max-width: 100%;
             text-align: center;
         }
+        #cont{
+          background-color: white;
+          width: 1300px;
+        }
         select#sizeDropdown {
             width: 100%;
         }
@@ -181,69 +237,62 @@
             font-size: 18px;
             margin-left: 5px;
         }
-    }
+     }
 </style>
 </head>
-<div style="background-color: white;">
+<div style="background-color: white;min-height:2500px;width: 100vw;padding-left: 50px;" id="cont" >
     
-    <!-- <h3 style="text-align: center;font-size: 35px;background-color: #f2e9e4;padding: 50px;" >ghj</h3> -->
-    <img src="https://nobero.com/cdn/shop/files/74_1.jpg?v=1701091894" alt="imgg" style="width: 100%;" >
-        <div style="display: flex;padding-left: 80px;">
-        <div style="width: 300px;height: 100vh;padding: 20px;padding-top: 35px;" >
-            <div class="sidebar-main"  >
-                <div class="ast-filter-wrap"><div id="block-4" class="ast-woo-sidebar-widget widget widget_block"><div data-block-name="woocommerce/product-search" data-has-label="false" data-label="" data-form-id="wc-block-product-search-0" class="wc-block-product-search alignfull wp-block-woocommerce-product-search">
-                    <form class="d-flex " role="search"  style="margin-bottom: 30px;margin-left: 5px;padding-top: 10px;" action="/products/specific" method="POST" >
-                        <input class="form-control me-2 col-10" type="search" placeholder="Search" aria-label="Search" id="searchBar" name="input">
-                        <button id="btnn" class="btn btn-outline-success" type="submit" style="background-color: white;" >Search</button>
-                      </form>
-                      <form class="d-flex " role="search"  style="width:150px;align-items: center;position: relative;right:15px;margin-bottom: 80px;">
-                        <select id="sizeDropdown" name="size">
-                          <option value="" disabled selected hidden>Sorting Order</option>
-                          <option value="name">Name A to Z</option>
-                          <option value="-name">Name Z to A</option>
-                          <option value="-price">Price H to L</option>
-                          <option value="price">Price L to H</option>
-                        </select>
-                        <span><i id="li" class="fa-solid fa-filter fa-2xl"></i></span>
-                      </form>
-                    <form action="/products/searchPrice" method="post" style="margin-bottom: 80px;" >
-                        <label for="priceRange">Price Range:</label>
-                        <input type="range" id="priceRange" name="input" min="0" max="129000" step="1000">
-                        <output for="priceRange" id="priceOutput">50000</output><br>
-                        <input type="submit" value="Search">
-                    </form>
-                </div>
-                <li class="cat-item cat-item-21"><a href="/products/specificCategory/men">Men</a></li>
-                <li class="cat-item cat-item-22"><a href="/products/specificCategory/women">Women</a></li></ul>
-                </div>
+  <img src="https://nobero.com/cdn/shop/files/74_1.jpg?v=1701091894" alt="imgg" style="width: 100%;" >
+  <div  style="height: 100vh;padding: 20px;padding-top: 35px;display: flex;background-color: white;min-height: 200px;" >
+      <div  style="display: inline-block ;border: 2px solid black;" >
+          <form class="d-flex " role="search"  style="margin-bottom: 30px;margin-left: 5px;padding-top: 10px;" action="/products/specific" method="POST" >
+            <input class="form-control me-2 col-10" type="search" placeholder="Search" aria-label="Search" id="searchBar" name="input">
+            <button id="btnn" class="btn btn-outline-success" type="submit" style="background-color: white;" >Search</button>
+          </form>
+          <form class="d-flex " role="search"  style="width:150px;align-items: center;position: relative;right:15px;margin-bottom: 80px;">
+            <select id="sizeDropdown" name="size">
+              <option value="" disabled selected hidden>Sorting Order</option>
+              <option value="name">Name A to Z</option>
+              <option value="-name">Name Z to A</option>
+              <option value="-price">Price H to L</option>
+              <option value="price">Price L to H</option>
+            </select>
+            <span><i id="li" class="fa-solid fa-filter fa-2xl"></i></span>
+          </form>
+          <form action="/products/searchPrice" method="post" style="margin-bottom: 80px;" >
+              <label for="priceRange">Price Range:</label>
+              <input type="range" id="priceRange" name="input" min="0" max="129000" step="1000">
+              <output for="priceRange" id="priceOutput">50000</output><br>
+              <input type="submit" value="Search">
+          </form>
+          <li class="cat-item cat-item-21"><a href="/products/specificCategory/men">Men</a></li>
+          <li class="cat-item cat-item-22"><a href="/products/specificCategory/women">Women</a></li></ul>
+      </div>
+      <div style="width:90vw !important;height:100vh;display: flex;flex-wrap: wrap;flex-direction: row !important;padding-left: 60px;">
+        <%for(let product of products){%>
+          <div id="hero" onclick="window.location.href='/products/<%=product._id%>'" style="border:2px solid black;width:220px;height: 400px;display: flex;flex-direction: column;justify-content:center;align-items: center;background-color:#D3D3D3;margin: 10px;">
+            <div style="height:200px;width:100%;overflow: hidden;" id="img"><img src="<%=product.img%>" alt="image not available" style="height:200px;width:100%"></div>
+            <h3 style="text-align: center;" ><%= product.name  %></h3>
+            <div style="width: 100%;display: flex;flex-direction: column;align-items: center;margin-bottom: 10px;">
+              <h5 style="font-weight: 500;" >Price:<%= product.price  %>$</h5>
+              <div style="text-align: center; height: 80px ; width: 95% ; overflow-y: scroll ;" ><%= product.desc  %></div>
             </div>
-                </div>
-        </div>   
-        <div style="width:1200px;height:100%;display: flex;flex-wrap: wrap;padding-left: 60px;">
-            <%for(let product of products){%>
-                <div id="hero" onclick="window.location.href='/products/<%=product._id%>'" style="border:2px solid black;width:220px;height: 400px;display: flex;flex-direction: column;justify-content:center;align-items: center;background-color:#D3D3D3;margin: 10px;">
-                    <div style="height:200px;width:100%;overflow: hidden;" id="img"><img src="<%=product.img%>" alt="image not available" style="height:200px;width:100%"></div>
-                    <h3 style="text-align: center;" ><%= product.name  %></h3>
-                    <div style="width: 100%;display: flex;flex-direction: column;align-items: center;margin-bottom: 10px;">
-                        <h5 style="font-weight: 500;" >Price:<%= product.price  %>$</h5>
-                        <div style="text-align: center; height: 80px ; width: 95% ; overflow-y: scroll ;" ><%= product.desc  %></div>
-                    </div>
-                    <div style="width: 100%;display: flex;justify-content: space-around;"  >
-                        <% if(currentUser){ %> 
-                        <% if(currentUser.identity==='seller'){ %> 
-                            <form action="/products/<%=product._id%>?_method=DELETE" method="post" style="display: inline-block;">
-                                <button  id="delete" ><i class="fa-solid fa-2xl fa-trash" style="color: #ff0000;"></i><br></button>
-                            </form>
-                        <% } %>
-                        <% } %>
-                        <form action="/products/<%=product._id%>" method="get" style="display: inline-block;">
-                            <button  id="show" ><i class="fa-solid fa-circle-info fa-2xl" style="color:green;"></i><br></button>
-                        </form>
-                    </div>
-                </div>
-            <%}%>
+            <div style="width: 100%;display: flex;justify-content: space-around;"  >
+              <% if(currentUser){ %> 
+              <% if(currentUser.identity==='seller'){ %> 
+                <form action="/products/<%=product._id%>?_method=DELETE" method="post" style="display: inline-block;">
+                    <button  id="delete" ><i class="fa-solid fa-2xl fa-trash" style="color: #ff0000;"></i><br></button>
+                </form>
+              <% } %>
+              <% } %>
+              <form action="/products/<%=product._id%>" method="get" style="display: inline-block;">
+                <button  id="show" ><i class="fa-solid fa-circle-info fa-2xl" style="color:green;"></i><br></button>
+              </form>
             </div>
-        </div>
+          </div>
+        <%}%>
+      </div>
+  </div>
 </div>
 <script>
     function toggleHeartClass(event) {

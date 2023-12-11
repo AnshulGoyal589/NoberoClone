@@ -20,30 +20,10 @@ function checkForNullCharacters(obj) {
   let i=1;
 
 router.get("/", async (req,res)=>{   
-    
+     
     const products=await Product.find({});
-  //   let productss = await Product.find({
-  //       frequencyOfPurchase: { $gte: i }
-  //     });
-
-  //     let productsss = await Product.find({
-  //       frequencyOfPurchase: { $gte: i+1 }
-  //     });
-
-  //  if(productsss.length>=5){
-  //   i++;
-  //   productss = await Product.find({
-  //       frequencyOfPurchase: { $gte: i }
-  //     });
-  //  }
     res.render("products/homeTemp",{products});
 })
-// router.post("/specific", async (req,res)=>{   
-    
-//     const {input}=req.body;
-//     const products=await Product.find({ name: { $regex: input, $options: 'i' } });
-//     res.render("products/homeTemp",{products});
-// })
 router.get("/specific", async (req, res) => {
   try {
     const { cat } = req.query;
@@ -54,31 +34,14 @@ router.get("/specific", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
 router.post("/searchPrice", async (req,res)=>{   
      
     const {input}=req.body;
     const products = await Product.find({ price: { $lte: input } });
-  //   let productss = await Product.find({
-  //       frequencyOfPurchase: { $gte: i }
-  //     });
-
-  //     let productsss = await Product.find({
-  //       frequencyOfPurchase: { $gte: i+1 }
-  //     });
-
-  //  if(productsss.length>=5){
-  //   i++;
-  //   productss = await Product.find({
-  //       frequencyOfPurchase: { $gte: i }
-  //     });
-  //  }
-
     res.render("products/homeTemp",{products});
 })
 router.get("/specificCategory/men", async (req,res)=>{   
     
-    // const {input}=req.body;
     const products = await Product.find({ gender: { $in: ['Men', 'Anyone'] }});
     let productss = await Product.find({
         frequencyOfPurchase: { $gte: i }
@@ -99,7 +62,6 @@ router.get("/specificCategory/men", async (req,res)=>{
 })
 router.get("/specificCategory/women", async (req,res)=>{   
     
-    // const {input}=req.body;
     const products = await Product.find({ gender: { $in: ['Women', 'Anyone'] }});
     let productss = await Product.find({
         frequencyOfPurchase: { $gte: i }
@@ -140,7 +102,7 @@ router.get("/sort/:basis", async (req,res)=>{
         frequencyOfPurchase: { $gte: i }
       });
    }
-    // const products=await Product.find({name:input});
+   
     res.render("products/homeTemp",{products,productss});
 })
 router.post("/new", async (req,res)=>{  
@@ -168,7 +130,6 @@ router.delete("/:productId",isLoggedIn ,async (req,res)=>{
 router.get("/:productId", async(req,res)=>{ 
     const {productId} = req.params; 
     const product = await Product.findById(productId).populate("review");
-    
     res.render("products/show", {product})
 })
 router.get("/:productId/edit",isLoggedIn, async (req,res)=>{ 
@@ -184,4 +145,4 @@ router.patch("/:productId", async (req,res)=>{
     res.redirect(`/products/${productId}`);
 })
 
-module.exports = router
+module.exports = router 

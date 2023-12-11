@@ -8,7 +8,7 @@ const colors = require("colors");
 const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override"); 
 const PORT=3000;
-const session = require('express-session');     
+const session = require('express-session');      
 const cookieParser = require('cookie-parser');  
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -16,7 +16,6 @@ const User=require("./models/User");
 const FacebookStrategy=require("passport-facebook").Strategy;
 const {isLoggedIn}=require("./middleware");
 const stripe = require('stripe')('sk_test_51NpBEdSFv9GHTIIZJaC6Y5CH8l1deCosoHCr97ypUbB64tPAhHdNM5vMEmeM1MHiQyQcdG09WQQ2CZrL39nekJ63008k53ovGr');
-// const stripe = require('stripe')(process.env.STRIPE);
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const rawData = fs.readFileSync('data.json');
 const responses = JSON.parse(rawData);
@@ -26,10 +25,10 @@ const dotenv = require('dotenv');
 
 dotenv.config() 
  
- 
+  
 app.use(bodyParser.json()); 
   
-
+ 
 const accountSid = 'AC050107307a6c1b98f768259a9233f3e1';
 const authToken = '4f42d34278df05b13ccdd3588cd90ed8'; 
  
@@ -61,12 +60,12 @@ const { type } = require('os');
   
 
 app.engine("ejs", ejsMate); 
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); 
 app.set("views", path.join(__dirname, "views"))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method")); 
 app.use(cookieParser('keyboardcat'));
-app.use(session(sessionConfig)); 
+app.use(session(sessionConfig));  
 app.use(passport.session());
 app.use(passport.authenticate('session'));
 app.use(flash());
@@ -80,9 +79,7 @@ app.use("/products", productRoutes);
 app.use( reviewRoutes);
 app.use( authRoutes);
 app.use( cartRoutes);
-
-
-
+ 
 passport.use(new LocalStrategy(User.authenticate()));
 
 passport.use(new GoogleStrategy({ 
@@ -176,14 +173,13 @@ app.post('/:IDD/create-checkout-session',isLoggedIn, async (req, res) => {
         quantity: 1,
       },
     ],
-    mode: 'payment',
+    mode: 'payment', 
     success_url: 'http://localhost:3000/success',
     cancel_url: `http://localhost:3000/products/${IDD}/cart`,
   });
 
   res.redirect(303, session.url); 
 });
-
 
 app.get('/oauth2/redirect/google', 
   passport.authenticate('google', { 
