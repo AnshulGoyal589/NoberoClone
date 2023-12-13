@@ -2,7 +2,6 @@ const express=require("express");
 const router=express.Router();
 const mongoose=require("mongoose");
 const User=require("../models/User");
-const Otp=require("../models/Otp");
 const passport = require('passport');
 const flash = require('connect-flash');
 const twilio = require('twilio');
