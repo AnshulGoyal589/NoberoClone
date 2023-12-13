@@ -179,7 +179,7 @@
                 <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">Travel Hoodie</a>
           </li>
           <% if(currentUser){ %>
-            <i class="fa-solid fa-cart-shopping fa-2xl" style="color:white;position: relative;top:10px " onclick="window.location.href='/products/<%= currentUser._id  %>/cart'">
+            <i class="fa-solid fa-cart-shopping fa-2xl" style="color:black;position: relative;top:20px " onclick="window.location.href='/products/<%= currentUser._id  %>/cart'">
             <sup><span class="translate-middle badge rounded-pill bg-danger">
               <%=currentUser.totalItems  %>
               </span>
@@ -205,8 +205,8 @@
                 "
           ">
         <% }else{ %>
-            <ul style="display: flex;align-items: center;justify-content: center;padding-top: 7px;">
-              <li id="li" ><i class="fa-solid fa-user fa-xl"></i><a href="userProfile" style="text-decoration: none;color:white; text-align: center;">
+            <ul style="display: flex;align-items: center;justify-content: center;padding-top: 7px">
+              <li id="li" style="display: flex;flex-direction: column;align-items: center;gap:15px;margin-top: 30px;"><i class="fa-solid fa-user fa-xl"></i><a href="userProfile" style="text-decoration: none;color: black; text-align: center;">
                 <%= currentUser.username  %> 
               </a></li>
               <li id="li"><a href="/logout" id="a">Logout</a></li>

@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 function checkForNullCharacters(obj) {
     for (let key in obj) {
-        if (obj[key]==="") {
+        if (obj[key]==="") { 
           return false; 
         }
     }
@@ -120,7 +120,7 @@ router.get("/add",isLoggedIn, (req,res)=>{
     console.log("OOOOOOOOOOOOOOOOOOOOOO:    ",req.isAuthenticated);       
     res.render("products/addTemp");
 })
-router.delete("/:productId",isLoggedIn ,async (req,res)=>{
+router.delete("/:productId",isLoggedIn ,async (req,res)=>{ 
     const {productId}=req.params; 
     await Product.findByIdAndDelete( productId );
     const products=await Product.find({});

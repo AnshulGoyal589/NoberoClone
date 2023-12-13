@@ -18,7 +18,7 @@
         }
         #formdiv{
             border:4px solid black;
-            width:750px;
+            width:750px; 
             height: fit-content;
             text-align: center;
         }  
@@ -138,15 +138,9 @@
             </form>
         <% } %>
         <% } %>
-        <% if(currentUser){ %>
-        <% if(currentUser.identity==='seller'){ %>
-           <a id="update" href="/products/<%=product._id%>/edit"><i class="fa-solid fa-pen fa-2xl" style="color: blue;"></i><br><br>UPDATE</a>
-        <% } %>
-        <% } %>
         <% if(currentUser){ %>    
-        <% if(currentUser.identity==='buyer'){ %>    
             <a id="addToCart" href="/products/<%=product._id%>/<%= currentUser._id%>/cart"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: green;"></i><br><br>ADD</a>  
-        <% } %>
+      
         <% } %>
     </div>
 
