@@ -20,8 +20,8 @@
     .main:hover{
       text-decoration-skip-ink: auto;
       margin-bottom: 14px !important;
-      border-bottom: 2px solid blue !important; /* Adjust the width and color of the underline */
-        padding-bottom: 4px !important;
+      border-bottom: 2px solid blue !important; 
+      padding-bottom: 4px !important;
       color: blue !important;
     }
     #hov2 img{
@@ -102,47 +102,53 @@
       color: black;
       margin: auto 10px;
     }
-    @media (max-width: 768px) {
-      #navbarText {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .navbar-toggler {
-        order: -1; 
-      }
-      nav{
+   
+    @media (max-width: 1200px){
+      #navbarText{
+        
         background-color: white;
       }
+      #w{
+        font-size: 16px;
+        
+      }
     }
-    
+   
+    @media (max-width: 1230px) and (min-width:1200px){
+      #w{
+        font-size: 14px;
+        
+      }
+    }
+    @media (min-width:1230px){
+      #w{
+        font-size: 16px;
+        
+      }
+    }
+
+
   </style>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary" style="border: 2px solid white; background-color: white !important; color: black; height: 80px; z-index: 1001 !important;">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-xl navbar-light bg-body-tertiary" style="border: 2px solid white; background-color: white !important; color: black; height: 80px; z-index: 1001 !important;">
+  <div class="container-fluid" id="header">
     <a class="navbar-brand" href="#">
-      <img src="https://nobero.com/cdn/shop/files/Nobero_logo_1_2.svg?v=1694697396" alt="logo" style="width:65px;height:65px;position: relative;position: relative;top:5px;margin-left: 70px;margin-right: 50px;" class="d-inline-block align-text-top">
+      <img src="https://nobero.com/cdn/shop/files/Nobero_logo_1_2.svg?v=1694697396" alt="logo" style="width:65px;height:65px;position: relative;position: relative;top:5px;margin-bottom:10px ;margin-left: 0px;margin-right: 0px; padding-bottom: 10px;" class="d-inline-block align-text-top">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="menu" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll" style="flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll" id="tags" >
       <li class="nav-item" style="height:80px !important;">
-            <!-- <img style="width:65px;height:65px;position: relative;position: relative;top:5px;margin-left: 70px;margin-right: 50px;" src="https://nobero.com/cdn/shop/files/Nobero_logo_1_2.svg?v=1694697396" alt="logo"> -->
-          </li>
+         </li>
           <li class="nav-item" style="margin: 15px;">   
-              <a class=" main " href="/products/newArrivals" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">New Arrivals</a>   
+              <!-- <a class=" main " id="w" href="/products/newArrivals" style="text-decoration: none;color:black;cursor:pointer;font-weight: 900;position:relative;">New Arrivals</a>    -->
+              <a class=" main " id="w" href="/products" style="text-decoration: none;color:black;cursor:pointer;font-weight: 900;position:relative;">New Arrivals</a>   
           </li>
           <li class="nav-item" style="margin: 15px;" >
             
-              <div   style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative" 
+              <div id="w" class="menn" style="text-decoration: none;color:black;cursor:pointer;font-weight: 900;position:relative;top:10px;" 
                 onmouseenter="
                 const hov=document.getElementById('hov');
                 hov.style.display='flex';
@@ -154,9 +160,9 @@
                         }, 2000); 
                 "
                 >Men</div>   
-          </li>
+          </li> 
           <li class="nav-item" style="margin: 15px;">
-                <div  style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;" 
+                <div  id="w" class="womenn" style="text-decoration: none;color:black; cursor:pointer;font-weight: 900;position:relative;top:10px;" 
                 onmouseenter="
                 const hov=document.getElementById('hov2');
                 hov.style.display='flex';
@@ -170,13 +176,13 @@
                 >Women</div>
           </li>
           <li class="nav-item" style="margin: 15px;">
-                <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">Hoodies & Jackets</a>
+                <a class=" main " id="w" href="/products" style="text-decoration: none;color:black;cursor:pointer;font-weight: 900;position:relative;">Hoodies & Jackets</a>
           </li>
           <li class="nav-item" style="margin: 15px;">
-                <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">SweatShirts</a>
+                <a class=" main " id="w" href="/products" style="text-decoration: none;color:black;cursor:pointer;font-weight: 900;position:relative;">SweatShirts</a>
           </li>
           <li class="nav-item" style="margin: 15px;">
-                <a class=" main " href="#" style="text-decoration: none;color:black;font-size: 16px;cursor:pointer;font-weight: 900;position:relative;">Travel Hoodie</a>
+                <a class=" main " id="w" href="/products" style="text-decoration: none;color:black;cursor:pointer;font-weight: 900;position:relative;">Travel Hoodie</a>
           </li>
           <% if(currentUser){ %>
             <i class="fa-solid fa-cart-shopping fa-2xl" style="color:black;position: relative;top:20px " onclick="window.location.href='/products/<%= currentUser._id  %>/cart'">
@@ -229,17 +235,14 @@
         </div>
         <div>
             <img src="https://plus.unsplash.com/premium_photo-1675186049409-f9f8f60ebb5e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
-            <!-- <a href=`/products/specific?{tShirts}`>T-Shirts</a> -->
             <a href="/products/specific?cat=tShirts">T-Shirts</a>
         </div>
         <div>
             <img src="https://plus.unsplash.com/premium_photo-1682096113699-cce9093dcc73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
-            <!-- <a href=`/products/specific?{coordShirts}`>Co-ord Sets</a> -->
             <a href="/products/specific?cat=coordShirts">Co-ord Shirts</a>
         </div>
         <div>
             <img src="https://images.unsplash.com/photo-1495121605193-b116b5b9c5fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGZhc2hpb258ZW58MHx8MHx8fDA%3D" alt="">
-            <!-- <a href=`/products/specific?{}`>Joggers</a> -->
             <a href="/products/specific?cat=joggers">Joggers</a>
         </div>
      
@@ -257,17 +260,14 @@
         </div>
         <div>
             <img src="https://nobero.com/cdn/shop/collections/3_7.jpg?v=1681740357" alt="">
-            <!-- <a href=`/products/specific?{tShirts}`>T-Shirts</a> -->
             <a href="/products/specific?cat=tShirts">T-Shirts</a>
         </div>
         <div>
             <img src="https://nobero.com/cdn/shop/collections/5.jpg?v=1679983950" alt="">
-            <!-- <a href=`/products/specific?{coordShirts}`>Co-ord Sets</a> -->
             <a href="/products/specific?cat=coordShirts">Co-ord Shirts</a>
         </div>
         <div>
             <img src="https://nobero.com/cdn/shop/collections/2-5.jpg?v=1679997455" alt="">
-            <!-- <a href=`/products/specific?{}`>Joggers</a> -->
             <a href="/products/specific?cat=joggers">Joggers</a>
         </div>
      
@@ -276,13 +276,13 @@
     <a href="/login">Login</a>
     <a href="/register">Signup</a>
 </div>
+
+
 <script>
   document.getElementById('sizeDropdown').addEventListener('change', function() {
   const selectedSize = this.value; 
   console.log('Selected size:', selectedSize);
-  window.location.href=`/products/sort/${selectedSize}`;
-
-
+  window.location.href=/products/sort/${selectedSize};
 });
 
 </script>

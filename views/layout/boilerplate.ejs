@@ -163,6 +163,46 @@ function toggleChat() {
 
         document.getElementById('user-message').value = ''; 
       }
+      function applyCustomStyle() {
+        
+      const menn=document.querySelector('.menn');
+      const womenn=document.querySelector('.womenn');
+        var screenWidth = window.innerWidth;
+        if (screenWidth <= 1200) {
+
+          menn.addEventListener('click',(event)=>{
+            window.location.href='/products/specificCategory/men'
+          })
+          womenn.addEventListener('click',(event)=>{
+            window.location.href='/products/specificCategory/women'
+          })
+ 
+        } else {
+          menn.addEventListener('mouseenter',(event)=>{
+              const hov=document.getElementById('hov');
+               hov.style.display='flex';
+          });
+          womenn.addEventListener('mouseenter',(event)=>{
+              const hov2=document.getElementById('hov2');
+               hov2.style.display='flex';
+          });
+          menn.addEventListener('mouseleave',(event)=>{
+            const hov=document.getElementById('hov');
+            setTimeout(function () {      
+                 hov.style.display='none';
+            }, 2000); 
+          });
+          womenn.addEventListener('mouseleave',(event)=>{
+            const hov2=document.getElementById('hov2');
+            setTimeout(function () {      
+                 hov2.style.display='none';
+            }, 2000); 
+          });
+
+        }
+      }
+      window.onload = applyCustomStyle;
+      window.onresize = applyCustomStyle;
     </script>
     
 </body>
