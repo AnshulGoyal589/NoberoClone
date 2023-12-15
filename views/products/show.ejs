@@ -121,7 +121,7 @@
 </head>
 
 <br><br>
-<div id="main">
+<div id="main" style="flex-wrap: wrap;">
 <div id="card">
 
     <div id="img"><img src="<%=product.img%>" alt="image not available"></div>  
@@ -197,11 +197,11 @@
 <script>
     function rate(stars){
         for(let i=1 ; i<=stars ; i++){
-            let star=document.querySelector(`#star${i}`);
+            let star=document.querySelector(#star${i});
             star.style.color="yellow";
         }
         for(let i=stars+1 ; i<=5 ; i++){
-            let star=document.querySelector(`#star${i}`);
+            let star=document.querySelector(#star${i});
             star.style.color="lightgray";
         }
         let hiddenInput=document.querySelector("#hiddenInput");
